@@ -4,12 +4,21 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-
+<div class="intro">
+<h2>How ya doin'?</h2>
+<p><figure>
+<img src="https://res.cloudinary.com/chrisrindone/image/upload/v1614777129/chris1_aur7al.png" alt="me">
+<figcaption>☝️ Me</figcaption>
+</figure>
+The HTML  (Figure With Optional Caption) element represents self-contained content, potentially with an optional caption, 
+which is specified using the  element. The figure, its caption, and its contents are referenced as a single unit.
+</p>
+</div>
 {% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+<h1>My {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }}{% endif %} newest posts</h1>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
 {% include "postslist.njk" %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<p>More posts can be found in 👉 <a href="{{ '/posts/' | url }}">the archive</a>.</p>

@@ -5,8 +5,10 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const striptags = require("striptags");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -129,3 +131,21 @@ module.exports = function(eleventyConfig) {
     }
   };
 };
+function extractExcerpt(article) {
+  if (!article.hasOwnProperty("templateContent")) {
+    console.warn(
+      'Failed to extract excerpt: Document has no property "templateContent".'
+    );
+    return null;
+  }
+
+  let excerpt = null;
+  const content = article.templateContent;
+
+  excerpt = striptags(content)
+    .substring(0, 200) // Cap at 200 characters
+    .replace(/^\\s+|\\s+$|\\s+(?=\\s)/g, "")
+    .trim()
+    .concat("...");
+  return excerpt;
+}

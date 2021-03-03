@@ -1,5 +1,5 @@
 ---
-title: Nothing Should Go Wrong Here, Unless It Does
+title: Nothing's Broken, Unless It Is
 description: Posting about some of the wasy I may (probably) mess up this blog.
 date: 2021-03-01
 tags:

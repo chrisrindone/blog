@@ -188,7 +188,7 @@ pre {
   font-size: 0.625em; /* 10px /16 */
   padding: 2px 4px;
   margin-left: 0.8em; /* 8px /10 */
-  background-color: var(--red);
+  background-color: hsla(248, 97%, 41%, 0.7);
   color: var(--white);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
@@ -223,4 +223,167 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+/* Customizations */
+/* 👉 The wrapper is a utility class by Andy Bell via https://archive.hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/ */
+.wrapper {
+  max-width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+body {
+  background-image: url(https://res.cloudinary.com/chrisrindone/image/upload/o_35/v1614704583/tiedye1_aqcp5c.jpg);
+  background-repeat: no-repeat;
+  background-position-x: -8vw;
+  background-position-y: bottom;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  min-height: 80vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.nav {
+  float: right;
+}
+/*
+header nav {
+  z-index: 1;
+}
+
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header {
+  background-color: hsla(248, 97%, 41%, 0.7);
+  color: #fff;
+}
+
+.home a[href] {
+  color: var(--white);
+}
+
+.nav a[href] {
+  color: var(--white);
+}
+
+
+header nav a:first-of-type {
+  margin-left: auto;
+}
+header nav a:last-of-type {
+  margin-right: 1.5em;
+}
+
+
+main {
+  margin-top: 10vh;
+  margin-left: 3vw;
+}
+
+main img {
+  content-visibility: auto;
+}
+
+/* Avoid the header hiding the content on anchor scroll. */
+
+article * {
+  scroll-margin-top: 50px;
+}
+
+
+/* "Content-visibility: auto" move the images over the other elements
+   Set z-index to keep the nav over the rasterized images */
+header {
+  z-index: 1;
+}
+
+figure {
+  float: right;
+}
+
+figure img {
+  border-radius: 6px;
+}
+
+figcaption {
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen 
+   and (max-width : 768px) {
+     figure, figcaption {
+       display: none;
+     }
+   }
+
+.intro p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.postlist-item:before {
+  display: none;
+}
+
+@media only screen 
+   and (max-width : 768px) {
+    .postlist-item time::before{
+      content: "\a";
+      white-space: pre;
+    }
+}
+
+.postlist-item a {
+  text-decoration-color: hsla(248, 97%, 41%, 0.7);
+ text-decoration-thickness: 3px;
+}
+
+.postlist-item a:hover {
+  text-decoration-color: #000;
+}
+
+
+main.tmpl-post {
+  background-color: hsla(360, 100%, 100%, 0.7);
+  border-radius: 0.5rem;
+  border: solid 2px #f2f2f2;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid #333;
+}
+
+footer a:not(span) {
+  text-decoration-color: hsla(248, 97%, 41%, 0.7);
+}
+
+footer span {
+  margin-left: 3vw;
+  font-size: smaller;
+}
+
+footer span a {
+  text-decoration-color: #000;
+  color: hsla(248, 97%, 41%, 0.7);
 }
